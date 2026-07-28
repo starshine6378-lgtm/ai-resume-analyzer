@@ -1,0 +1,22 @@
+ZHANG SAN
+Python Backend Engineer
+Email: zhangsan@example.com
+Phone: 13800138000
+Location: Hangzhou
+
+SUMMARY
+4 years work experience in Python backend development.
+
+SKILLS
+Python, FastAPI, MySQL, Redis, Docker, Linux, Git
+
+WORK EXPERIENCE
+2022-01 - Present  Backend Engineer
+Designed RESTful APIs and Redis caching for an order platform.
+
+EDUCATION
+2017-09 - 2021-06  Bachelor of Computer Science
+
+PROJECT EXPERIENCE
+AI Resume Analyzer - FastAPI, Redis, Docker, Serverless
+Built PDF parsing and explainable job matching services.
