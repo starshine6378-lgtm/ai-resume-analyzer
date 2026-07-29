@@ -27,13 +27,18 @@ export function ScorePanel({ result }: { result: MatchResult }) {
             <span>/ 100</span>
           </div>
         </div>
-        <div>
+        <div className="score-hero-copy">
           <span className="eyebrow">综合匹配结论</span>
           <h2>{recommendationText[result.recommendation]}</h2>
           <p>{result.summary}</p>
-          <span className="mode-badge">
-            {result.scoring_mode === "ai_hybrid" ? "混合评分" : "确定性评分"}
-          </span>
+          <div className="score-badges">
+            <span className={`recommendation-badge is-${result.recommendation}`}>
+              {result.score >= 80 ? "高匹配" : result.score >= 60 ? "中等匹配" : "待审慎评估"}
+            </span>
+            <span className="mode-badge">
+              {result.scoring_mode === "ai_hybrid" ? "混合评分" : "确定性评分"}
+            </span>
+          </div>
         </div>
       </div>
 

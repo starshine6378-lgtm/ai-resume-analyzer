@@ -14,9 +14,14 @@ export function CandidateCard({ analysis }: { analysis: ResumeAnalysis }) {
   return (
     <section className="result-card candidate-card">
       <div className="card-header">
-        <div>
-          <span className="eyebrow">候选人档案</span>
-          <h2>{candidate.name || "姓名未识别"}</h2>
+        <div className="candidate-heading">
+          <span className="candidate-avatar" aria-hidden="true">
+            {(candidate.name || "候").trim().slice(0, 1)}
+          </span>
+          <div>
+            <span className="eyebrow">候选人档案</span>
+            <h2>{candidate.name || "姓名未识别"}</h2>
+          </div>
         </div>
         <span className="mode-badge">
           {analysis.extraction_mode === "hybrid" ? "AI + 规则" : "规则模式"}
