@@ -99,12 +99,28 @@ export default function App() {
         <a className="brand" href="#top" aria-label="Talent Lens 首页">
           <span className="brand-mark">TL</span>
           <span>
-            <strong>Talent Lens</strong>
-            <small>AI Resume Analyzer</small>
+            <strong>TalentLens</strong>
+            <small>AI 招聘决策助手</small>
           </span>
         </a>
         <div className="topbar-actions">
-          <span className="api-url">{API_BASE_URL}</span>
+          <a
+            className="api-link"
+            href={`${API_BASE_URL}/health`}
+            target="_blank"
+            rel="noreferrer"
+            title={API_BASE_URL}
+          >
+            API 状态
+          </a>
+          <a
+            className="repo-link"
+            href="https://github.com/starshine6378-lgtm/ai-resume-analyzer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
           <StatusChip state={apiState} label={apiState === "online" ? "后端在线" : apiState === "offline" ? "后端未连接" : "检测中"} />
         </div>
       </header>
@@ -112,24 +128,24 @@ export default function App() {
       <main id="top">
         <section className="console-hero">
           <div className="hero-copy">
-            <span className="eyebrow">Serverless Recruiting Workflow</span>
-            <h1>AI 赋能的智能简历分析系统</h1>
-            <p>上传 PDF 简历并粘贴岗位描述，快速得到候选人档案、岗位关键词拆解和可解释匹配评分。</p>
+            <span className="eyebrow">AI RECRUITING · SERVERLESS</span>
+            <h1>AI 智能简历分析</h1>
+            <p>把 PDF 简历转成结构化候选人档案，并结合岗位要求生成清晰、可追溯的匹配结论。</p>
             <div className="hero-metrics" aria-label="核心能力">
               <HeroMetric value="PDF" label="多页解析" />
-              <HeroMetric value="Qwen" label="JSON 抽取" />
+              <HeroMetric value="Qwen" label="信息抽取" />
               <HeroMetric value="Redis" label="缓存优先" />
-              <HeroMetric value="FC" label="云函数部署" />
+              <HeroMetric value="FC" label="弹性部署" />
             </div>
           </div>
 
           <aside className="review-brief" aria-label="评审路径">
             <div className="brief-header">
               <div>
-                <span className="eyebrow">Reviewer Map</span>
-                <h2>评审看点</h2>
+                <span className="eyebrow">PROCESS</span>
+                <h2>一次请求的处理链路</h2>
               </div>
-              <strong>5/5</strong>
+              <strong>5 步</strong>
             </div>
             <ol className="flow-list">
               {FLOW_STEPS.map(([title, detail], index) => (
@@ -161,8 +177,8 @@ export default function App() {
 
           <aside className="run-panel">
             <div className="run-panel-header">
-              <span className="eyebrow">Run Console</span>
-              <h2>本次分析</h2>
+              <span className="eyebrow">ANALYSIS RUN</span>
+              <h2>提交分析任务</h2>
               <p>{apiDetail}</p>
             </div>
 
@@ -180,7 +196,7 @@ export default function App() {
                 </>
               ) : (
                 <>
-                  开始智能匹配 <span aria-hidden="true">→</span>
+                  开始智能匹配 <span className="button-arrow" aria-hidden="true">→</span>
                 </>
               )}
             </button>
@@ -198,8 +214,8 @@ export default function App() {
           <section className="results" id="results">
             <div className="results-heading">
               <div>
-                <span className="eyebrow">Analysis Result</span>
-                <h2>分析结果</h2>
+                <span className="eyebrow">ANALYSIS REPORT</span>
+                <h2>候选人匹配报告</h2>
                 <p>分数用于辅助筛选，建议结合面试、作品和业务场景复核。</p>
               </div>
               <div className="result-stats" aria-label="结果概览">
